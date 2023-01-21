@@ -12,11 +12,19 @@ table input {
 }
 .main {
   display: flex;
-  justify-content: flex-start;
-}
-table {
-  margin: 50px;
-}
-h2 {
+  justify-content: space-evenly;
   margin-top: 50px;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.checkBtn {
+  height: 10%;
+  width: 40%;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: blanchedalmond;
 }
