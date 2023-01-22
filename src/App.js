@@ -1,13 +1,15 @@
 import { useState } from "react";
 import Board from "./components/Board";
-import CheckBtn from "./components/CheckBtn";
 import { getDeepCopy } from "./components/Board";
 import { initial } from "./components/Puzzle";
+import Picker from "./components/Picker";
+import Sidebar from "./components/Sidebar";
 
 export const numCheck = 1;
 
 function App() {
   const [sudokuBoard, setSudokuBoard] = useState(getDeepCopy(initial));
+  const [done, setDone] = useState(true);
 
   function inputChange(e, row, col) {
     let grid = getDeepCopy(sudokuBoard);
@@ -20,18 +22,25 @@ function App() {
     setSudokuBoard(grid);
   }
 
-  return (
-    <div className="main">
-      <Board sudokuBoard={sudokuBoard} inputChange={inputChange} />
-      <div className="sidebar">
-        <div>
-          <h2>Your Missions: </h2>
-          <ul>
-            <li>Fill up all the 1s in the board</li>
-          </ul>
-        </div>
+  const onFinished = (e) => {
+    //Display Popup
+    setDone(true);
+  };
 
-        <CheckBtn grid={getDeepCopy(sudokuBoard)} />
+  const hidePopup = (e) => {
+    setDone(false);
+  };
+
+  return (
+    <div className="mainContainer">
+      <Picker visibility={done} hidePopup={hidePopup} />
+      <div className={done ? "blur game" : "game"}>
+        <Board sudokuBoard={sudokuBoard} inputChange={inputChange} />
+        <Sidebar
+          done={done}
+          sudokuBoard={sudokuBoard}
+          onFinished={onFinished}
+        />
       </div>
     </div>
   );

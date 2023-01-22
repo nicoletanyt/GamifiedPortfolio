@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import { numCheck } from "../App";
 
-export default function CheckBtn({ grid }) {
+export default function CheckBtn({ grid, onClicked }) {
   function checkRow(grid, row, num) {
     if (grid[row].indexOf(num) !== -1) {
       grid[row].splice(grid[row].indexOf(num), num);
@@ -45,7 +45,7 @@ export default function CheckBtn({ grid }) {
     for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
         if (grid[i][j] === numCheck) {
-          console.log(i, j);
+          // console.log(i, j);
           if (checkValid(grid, i, j, numCheck)) {
             numLeft--;
           } else {
@@ -58,6 +58,7 @@ export default function CheckBtn({ grid }) {
     console.log(numLeft);
     if (numLeft === 0) {
       alert("Congrats! You have completed mission 1!"); //show screen to see achievements
+      return true;
     } else {
       alert("You need to fill in more " + numCheck + "s!");
     }
@@ -65,9 +66,11 @@ export default function CheckBtn({ grid }) {
 
   return (
     <button
-      className="checkBtn"
-      onClick={() => {
-        checkOccurrences(grid, numCheck);
+      className="checkBtn togglePoint"
+      onClick={(e) => {
+        if (checkOccurrences(grid, numCheck)) {
+          onClicked(e);
+        }
       }}
     >
       Check
