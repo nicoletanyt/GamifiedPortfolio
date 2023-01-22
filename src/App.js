@@ -4,12 +4,14 @@ import { getDeepCopy } from "./components/Board";
 import { initial } from "./components/Puzzle";
 import Picker from "./components/Picker";
 import Sidebar from "./components/Sidebar";
+import InventoryBtn from "./components/InventoryBtn";
+import HelpBtn from "./components/HelpBtn";
 
 export const numCheck = 1;
 
 function App() {
   const [sudokuBoard, setSudokuBoard] = useState(getDeepCopy(initial));
-  const [done, setDone] = useState(true);
+  const [done, setDone] = useState(false);
 
   function inputChange(e, row, col) {
     let grid = getDeepCopy(sudokuBoard);
@@ -41,6 +43,10 @@ function App() {
           sudokuBoard={sudokuBoard}
           onFinished={onFinished}
         />
+      </div>
+      <div className="toolbar">
+        <HelpBtn />
+        <InventoryBtn />
       </div>
     </div>
   );
