@@ -1,14 +1,24 @@
+#root {
+  font-family: "Sofia Sans", sans-serif;
+}
+body {
+  margin: 0;
+  background-color: #d9d0b4;
+}
 table input {
-  border: 2px solid black;
+  border: 2px solid #666b5e;
   margin: 0;
   font-size: 20px;
   text-align: center;
   height: 50px;
   width: 50px;
+  color: black;
+  font-weight: bold;
 }
 .initalCell {
-  background-color: blanchedalmond;
+  background-color: #879e82;
   pointer-events: none;
+  color: white;
 }
 .game {
   display: flex;
@@ -21,13 +31,18 @@ table input {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  background-color: #879e82;
+  padding: 30px;
+  border: 2px solid #666b5e;
 }
 .checkBtn {
   height: 10%;
   width: 40%;
   font-size: 20px;
   border-radius: 10px;
-  background-color: blanchedalmond;
+  background-color: white;
+  border: 2px solid#666b5e;
+  font-family: "Sofia Sans", sans-serif;
 }
 .done {
   text-decoration: line-through;
@@ -37,16 +52,19 @@ table input {
   position: absolute;
 }
 .picker {
-  background-color: azure;
-  border: 3px rgb(102, 102, 162) solid;
-  width: 60%;
-  height: 80%;
-  margin-left: 20%;
-  padding-top: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+.popUp {
+  /*#d9d0b4, #879e82*/
+  background-color: #879e82;
+  border: 2px solid #666b5e;
+  width: 60%;
+  height: 70%;
+  margin-left: 20%;
+  padding-top: 5%;
 }
 .mainContainer {
   position: relative;
@@ -57,7 +75,7 @@ body {
   overflow: hidden;
 }
 .blur {
-  pointer-events: none;
+  filter: blur(5px);
 }
 .show {
   visibility: visible;
@@ -94,6 +112,7 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
+  font-weight: bold;
 }
 .achievementIcon {
   font-size: 70px;
@@ -101,9 +120,10 @@ body {
   margin-bottom: 5%;
 }
 .doneBtn {
-  background-color: greenyellow;
+  background-color: white;
   padding: 10px;
-  border: 1px solid black;
+  border: 2px solid #666b5e;
+  border-radius: 10px;
 }
 .toolbar {
   position: absolute;
@@ -119,12 +139,40 @@ body {
   margin: 50px;
   display: flex;
   align-items: center;
-  border: 2px black solid;
+  border: 2px #666b5e solid;
   border-radius: 20px;
   padding: 20px;
   cursor: pointer;
+  background-color: #879e82;
 }
 .toolbarName {
-  font-size: 30px;
+  font-size: 20px;
   padding-left: 20px;
+}
+.inventory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inventoryItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #d9d0b4;
+  width: 25%;
+  height: 40%;
+  border-radius: 5%;
+  border: 2px dotted #666b5e;
+  cursor: pointer;
+}
+.inventoryItemWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: inherit;
+  width: inherit;
+}
+.noPointer {
+  pointer-events: none;
 }

@@ -6,7 +6,7 @@ import { ACHIEVEMENTS } from "./Achievements";
 import DoneBtn from "./DoneBtn";
 
 //Pick which achievement to view. "Popup".
-export default function Picker({ visibility, hidePopup }) {
+export default function Picker({ visibility, hidePopup, updateUnlock }) {
   const [isOpened, setIsOpened] = useState(false);
 
   function handleClick() {
@@ -16,9 +16,9 @@ export default function Picker({ visibility, hidePopup }) {
 
   return (
     <div
-      className={visibility ? "overlay picker show" : "overlay picker hidden"}
+      className={visibility ? "popUp overlay picker show" : "overlay hidden"}
     >
-      <Header />
+      <Header text={"Pick an achievement to unlock!"} />
       <div className="cardContainer" onClick={handleClick}>
         {ACHIEVEMENTS.map((achievement, index) => (
           <Card
@@ -26,10 +26,17 @@ export default function Picker({ visibility, hidePopup }) {
             index={index}
             achievement={achievement}
             isOpened={isOpened}
+            updateUnlock={updateUnlock}
           />
         ))}
       </div>
-      <DoneBtn show={isOpened} onClick={hidePopup} />
+      <DoneBtn
+        show={isOpened}
+        onClick={() => {
+          hidePopup("ACHIEVEMENTS");
+        }}
+        text={"Done"}
+      />
     </div>
   );
 }

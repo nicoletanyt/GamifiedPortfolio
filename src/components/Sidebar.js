@@ -8,7 +8,7 @@ export default function Sidebar({ done, sudokuBoard, onFinished }) {
       <div>
         <h2>Your Missions: </h2>
         <ul>
-          <li className={done ? "done" : null}>
+          <li className={done[0] ? "done" : null}>
             Fill up all the 1s in the board
           </li>
         </ul>
