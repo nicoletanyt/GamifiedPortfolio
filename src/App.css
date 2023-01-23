@@ -62,9 +62,9 @@ table input {
   background-color: #879e82;
   border: 2px solid #666b5e;
   width: 60%;
-  height: 70%;
+  height: 80%;
   margin-left: 20%;
-  padding-top: 5%;
+  /* padding-top: 2%; */
 }
 .mainContainer {
   position: relative;
@@ -122,6 +122,7 @@ body {
 .doneBtn {
   background-color: white;
   padding: 10px;
+  margin: 3%;
   border: 2px solid #666b5e;
   border-radius: 10px;
 }
@@ -153,6 +154,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 .inventoryItem {
   display: flex;
@@ -160,19 +162,58 @@ body {
   justify-content: space-evenly;
   align-items: center;
   background-color: #d9d0b4;
-  width: 25%;
-  height: 40%;
   border-radius: 5%;
   border: 2px dotted #666b5e;
   cursor: pointer;
 }
 .inventoryItemWrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  row-gap: 5%;
+  column-gap: 5%;
+  grid-template-rows: repeat(4, 40%);
   height: inherit;
   width: inherit;
+  overflow: scroll;
 }
 .noPointer {
   pointer-events: none;
+}
+.navigationBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.backBtn {
+  font-size: 25px;
+  transform: rotate(-90deg);
+  padding: 4%;
+  cursor: pointer;
+}
+.noToggle {
+  opacity: 0.3;
+}
+.itemDetails {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4%;
+}
+.detailImg {
+  max-width: 40%;
+  height: auto;
+  border: 2px solid #666b5e;
+  border-radius: 2%;
+}
+.itemDetails h2 {
+  margin: 0;
+}
+.details {
+  padding: 5%;
+  overflow: scroll;
+}
+.description {
+  padding-right: 5%;
+  text-align: justify;
+}
+.header h2 {
+  margin-bottom: 0;
 }
