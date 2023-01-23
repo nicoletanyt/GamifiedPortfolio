@@ -55,6 +55,7 @@ function App() {
       <Picker
         visibility={done}
         hidePopup={hidePopup}
+        unlocked={unlocked}
         updateUnlock={updateUnlockedAchievements}
       />
       <Inventory
