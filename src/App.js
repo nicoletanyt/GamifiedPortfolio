@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar";
 import InventoryBtn from "./components/InventoryBtn";
 import HelpBtn from "./components/HelpBtn";
 import Inventory from "./components/Inventory";
+import { ACHIEVEMENTS } from "./components/Achievements";
 
 function App() {
   const [sudokuBoard, setSudokuBoard] = useState(getDeepCopy(initial));
@@ -15,6 +16,7 @@ function App() {
   const [missionsDone, setMissionsDone] = useState([]);
   const [showInventory, setShowInventory] = useState(false);
   const [numCheck, setNumCheck] = useState(1);
+  const [cards, setCards] = useState(generateCards());
 
   function inputChange(e, row, col) {
     let grid = getDeepCopy(sudokuBoard);
@@ -27,12 +29,36 @@ function App() {
     setSudokuBoard(grid);
   }
 
-  const showPopup = (e) => {
+  function getRndInteger(minimum, maximum) {
+    return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+  }
+
+  function generateCards() {
+    let cards = [];
+    let locked = [];
+    for (let i = 0; i < ACHIEVEMENTS.length; i++) {
+      //check if it's unlocked. if val is -1, not found -> locked
+      if (unlocked.indexOf(i) === -1) {
+        //this achievement is locked
+        locked.push(i);
+      }
+    }
+
+    for (let i = 0; i < 3; i++) {
+      let randomIndex = getRndInteger(0, locked.length - 1);
+      cards.push(ACHIEVEMENTS[locked[randomIndex]]);
+      locked.splice(randomIndex, 1);
+    }
+    return cards;
+  }
+
+  function showPopup() {
     //Display Popup
     setDone(true);
+    setCards(generateCards());
     setMissionsDone([...missionsDone, true]);
     setNumCheck(numCheck + 1); //update the sudoku checking logic
-  };
+  }
 
   const hidePopup = (name) => {
     if (name === "ACHIEVEMENTS") {
@@ -57,6 +83,7 @@ function App() {
         hidePopup={hidePopup}
         unlocked={unlocked}
         updateUnlock={updateUnlockedAchievements}
+        cards={cards}
       />
       <Inventory
         visibility={showInventory}
