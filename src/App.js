@@ -8,14 +8,13 @@ import InventoryBtn from "./components/InventoryBtn";
 import HelpBtn from "./components/HelpBtn";
 import Inventory from "./components/Inventory";
 
-export const numCheck = 1;
-
 function App() {
   const [sudokuBoard, setSudokuBoard] = useState(getDeepCopy(initial));
   const [done, setDone] = useState(false);
   const [unlocked, setUnlocked] = useState([]);
   const [missionsDone, setMissionsDone] = useState([]);
   const [showInventory, setShowInventory] = useState(false);
+  const [numCheck, setNumCheck] = useState(1);
 
   function inputChange(e, row, col) {
     let grid = getDeepCopy(sudokuBoard);
@@ -32,6 +31,7 @@ function App() {
     //Display Popup
     setDone(true);
     setMissionsDone([...missionsDone, true]);
+    setNumCheck(numCheck + 1); //update the sudoku checking logic
   };
 
   const hidePopup = (name) => {
@@ -69,6 +69,7 @@ function App() {
           done={missionsDone}
           sudokuBoard={sudokuBoard}
           onFinished={showPopup}
+          numCheck={numCheck}
         />
       </div>
       <div className="toolbar">

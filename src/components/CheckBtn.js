@@ -1,8 +1,7 @@
 import React from "react";
 import "../App.css";
-import { numCheck } from "../App";
 
-export default function CheckBtn({ grid, onClicked }) {
+export default function CheckBtn({ grid, onClicked, numCheck }) {
   function checkRow(grid, row, num) {
     if (grid[row].indexOf(num) !== -1) {
       grid[row].splice(grid[row].indexOf(num), num);
@@ -55,9 +54,9 @@ export default function CheckBtn({ grid, onClicked }) {
         }
       }
     }
-    console.log(numLeft);
+    // console.log(numLeft);
     if (numLeft === 0) {
-      alert("Congrats! You have completed mission 1!"); //show screen to see achievements
+      alert("Congrats! You have completed mission " + numCheck + "!"); //show screen to see achievements
       return true;
     } else {
       alert("You need to fill in more " + numCheck + "s!");
