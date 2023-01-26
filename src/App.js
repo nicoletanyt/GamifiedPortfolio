@@ -19,7 +19,7 @@ function App() {
   const [showInventory, setShowInventory] = useState(false);
   const [numCheck, setNumCheck] = useState(1);
   const [cards, setCards] = useState(generateCards());
-  const [option, setOption] = useState(""); //inital state: "". "PLAIN": redirect to google site. "INTERACTIVE": start game
+  const [option, setOption] = useState(false); //inital state: 0. 1: interactive
 
   function inputChange(e, row, col) {
     let grid = getDeepCopy(sudokuBoard);
@@ -79,37 +79,25 @@ function App() {
     setShowInventory(!showInventory);
   }
 
-  function selectOption(type) {
-    console.log(type);
-    if (type === "PLAIN") {
-      //Redirect
-    } else if (type === "INTERACTIVE") {
-      //Start game
-      setOption(type);
-    }
-  }
-
   return (
     <div className="appWrapper">
-      <div className={option === "" ? "optionWrapper" : "hidden overlay"}>
-        <Option
-          text={"PLAIN"}
-          handleClick={() => {
-            selectOption("PLAIN");
-          }}
-          bio={"Continue to view a Google site"}
-        />
+      <div className={option === false ? "optionWrapper" : "hidden overlay"}>
+        <a
+          className="option"
+          href="https://sites.google.com/s2021.ssts.edu.sg/nicole/about-me?authuser=0"
+        >
+          <h2>PLAIN</h2>
+          <p>Continue to view a Google site</p>
+        </a>
         <Option
           text={"INTERACTIVE"}
-          handleClick={() => selectOption("INTERACTIVE")}
+          handleClick={() => setOption(true)}
           bio={"Continue to experience a more interactive portfolio"}
         />
       </div>
       <div
         className={
-          option === "INTERACTIVE"
-            ? "mainContainer"
-            : "mainContainer blur noPointer"
+          option === true ? "mainContainer" : "mainContainer blur noPointer"
         }
       >
         <Picker
