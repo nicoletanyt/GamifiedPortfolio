@@ -199,11 +199,50 @@ body {
   justify-content: space-between;
   padding-bottom: 4%;
 }
+:itemdetails {
+  --paddingOffset: 4px;
+}
 .detailImg {
-  max-width: 40%;
+  width: 100%;
   height: auto;
   border: 2px solid #666b5e;
   border-radius: 2%;
+  display: block;
+}
+.imageContainer:hover .creditsOverlay {
+  opacity: 1;
+}
+.creditsOverlay {
+  position: absolute;
+  /* top: 2px;
+  bottom: 0px;
+  left: 2px;
+  right: 0px; */
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: calc(100% - 2px);
+  width: calc(100% + 3px);
+  height: calc(100% - var(--paddingOffset));
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #7d6b57;
+  border-radius: 1%;
+  border: 2px solid #666b5e;
+}
+.credits {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.imageContainer {
+  position: relative;
+  height: 100%;
 }
 .itemDetails h2 {
   margin: 0;

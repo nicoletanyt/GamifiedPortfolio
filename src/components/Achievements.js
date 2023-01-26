@@ -84,7 +84,7 @@ export const ACHIEVEMENTS = [
         details:
           "Planemail is an app that helps you to organise your thoughts so you can structure your emails better. It is only available for IOS apps.",
         image: planemail,
-        credits: "",
+        credits: "PlaneMail",
         link: "app.swiftinsg.org/planemail",
         linkText: "Download Planemail here",
       },
@@ -93,7 +93,7 @@ export const ACHIEVEMENTS = [
         details:
           "SusCity (SustainableCity) is an educational geography game made using pure Javascript, CSS and HTML to help students visualise the geography concept taught in class. It is targeted at SST Students specifically because the geography content in the game is derived from SST's unique geography curriculum. Sneak peak of SusCity →",
         image: susCity,
-        credits: "",
+        credits: "SusCity",
         link: "https://sus-city.github.io/SIGNUP-PAGE/signup.html",
         linkText: "Click here to start playing!",
       },

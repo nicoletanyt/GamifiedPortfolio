@@ -8,11 +8,18 @@ export default function ItemDetails({ sectionInfo }) {
         <p>{sectionInfo.details}</p>
         <a href={sectionInfo.link}>{sectionInfo.linkText}</a>
       </div>
-      <img
-        className="detailImg"
-        src={sectionInfo.image}
-        alt={sectionInfo.title}
-      />
+      <div className="imageContainer">
+        <img
+          className="detailImg"
+          src={sectionInfo.image}
+          alt={sectionInfo.title}
+        />
+        <div className="creditsOverlay">
+          <p className="credits">
+            Credits: {sectionInfo.credits === "" ? "-" : sectionInfo.credits}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

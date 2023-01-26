@@ -17,15 +17,7 @@ export default function InventoryItemWrapper({
 
   return (
     <div className="inventoryItemWrapper">
-      {unlocked.map((item, index) => (
-        <InventoryItem
-          key={index}
-          item={item}
-          handleClick={handleShowDetails}
-          isShowDetails={showDetails}
-        />
-      ))}
-      {/* {showAll().map((item, index) => (
+      {/* {unlocked.map((item, index) => (
         <InventoryItem
           key={index}
           item={item}
@@ -33,6 +25,14 @@ export default function InventoryItemWrapper({
           isShowDetails={showDetails}
         />
       ))} */}
+      {showAll().map((item, index) => (
+        <InventoryItem
+          key={index}
+          item={item}
+          handleClick={handleShowDetails}
+          isShowDetails={showDetails}
+        />
+      ))}
     </div>
   );
 }
