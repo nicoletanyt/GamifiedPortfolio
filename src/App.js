@@ -10,6 +10,8 @@ import HelpBtn from "./components/HelpBtn";
 import Inventory from "./components/Inventory";
 import { ACHIEVEMENTS } from "./components/Achievements";
 import Option from "./components/Option";
+import SocialLink from "./components/SocialLink";
+import { AiFillGithub } from "react-icons/ai";
 
 function App() {
   const [sudokuBoard, setSudokuBoard] = useState(getDeepCopy(initial));
@@ -122,8 +124,17 @@ function App() {
           />
         </div>
         <div className="toolbar">
-          <HelpBtn />
-          <InventoryBtn handleClick={handleClick} />
+          <div className="toolbarLeft">
+            <SocialLink
+              href={"https://github.com/nicoletanyt"}
+              name="Github"
+              icon={<AiFillGithub />}
+            />
+            <HelpBtn />
+          </div>
+          <div className="toolbarRight">
+            <InventoryBtn handleClick={handleClick} />
+          </div>
         </div>
       </div>
     </div>

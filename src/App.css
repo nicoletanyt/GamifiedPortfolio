@@ -137,7 +137,7 @@ body {
   z-index: 0;
 }
 .toolbarBtn {
-  font-size: 50px;
+  font-size: 30px;
   margin: 50px;
   display: flex;
   align-items: center;
@@ -146,6 +146,7 @@ body {
   padding: 20px;
   cursor: pointer;
   background-color: #879e82;
+  height: 15%;
 }
 .toolbarName {
   font-size: 20px;
@@ -242,7 +243,6 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  text-decoration: none;
 }
 .appWrapper {
   position: relative;
@@ -250,4 +250,10 @@ body {
 .option:hover {
   background-color: #d9d0b4;
   color: #666b5e;
+}
+a {
+  text-decoration: none;
+}
+.socialLink {
+  color: black;
 }
