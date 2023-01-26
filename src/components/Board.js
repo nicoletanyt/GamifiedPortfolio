@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import "../App.css";
 import { initial } from "./Puzzle";
+import React from "react";
 
 export function getDeepCopy(arr) {
   return JSON.parse(JSON.stringify(arr));

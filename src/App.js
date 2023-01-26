@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import Board from "./components/Board";
 import { getDeepCopy } from "./components/Board";
@@ -8,6 +9,7 @@ import InventoryBtn from "./components/InventoryBtn";
 import HelpBtn from "./components/HelpBtn";
 import Inventory from "./components/Inventory";
 import { ACHIEVEMENTS } from "./components/Achievements";
+import Option from "./components/Option";
 
 function App() {
   const [sudokuBoard, setSudokuBoard] = useState(getDeepCopy(initial));
@@ -17,6 +19,7 @@ function App() {
   const [showInventory, setShowInventory] = useState(false);
   const [numCheck, setNumCheck] = useState(1);
   const [cards, setCards] = useState(generateCards());
+  const [option, setOption] = useState(""); //inital state: "". "PLAIN": redirect to google site. "INTERACTIVE": start game
 
   function inputChange(e, row, col) {
     let grid = getDeepCopy(sudokuBoard);
@@ -76,32 +79,64 @@ function App() {
     setShowInventory(!showInventory);
   }
 
+  function selectOption(type) {
+    console.log(type);
+    if (type === "PLAIN") {
+      //Redirect
+    } else if (type === "INTERACTIVE") {
+      //Start game
+      setOption(type);
+    }
+  }
+
   return (
-    <div className="mainContainer">
-      <Picker
-        visibility={done}
-        hidePopup={hidePopup}
-        unlocked={unlocked}
-        updateUnlock={updateUnlockedAchievements}
-        cards={cards}
-      />
-      <Inventory
-        visibility={showInventory}
-        hidePopup={hidePopup}
-        unlocked={unlocked}
-      />
-      <div className={done || showInventory ? "blur game noPointer" : "game"}>
-        <Board sudokuBoard={sudokuBoard} inputChange={inputChange} />
-        <Sidebar
-          done={missionsDone}
-          sudokuBoard={sudokuBoard}
-          onFinished={showPopup}
-          numCheck={numCheck}
+    <div className="appWrapper">
+      <div className={option === "" ? "optionWrapper" : "hidden overlay"}>
+        <Option
+          text={"PLAIN"}
+          handleClick={() => {
+            selectOption("PLAIN");
+          }}
+          bio={"Continue to view a Google site"}
+        />
+        <Option
+          text={"INTERACTIVE"}
+          handleClick={() => selectOption("INTERACTIVE")}
+          bio={"Continue to experience a more interactive portfolio"}
         />
       </div>
-      <div className="toolbar">
-        <HelpBtn />
-        <InventoryBtn handleClick={handleClick} />
+      <div
+        className={
+          option === "INTERACTIVE"
+            ? "mainContainer"
+            : "mainContainer blur noPointer"
+        }
+      >
+        <Picker
+          visibility={done}
+          hidePopup={hidePopup}
+          unlocked={unlocked}
+          updateUnlock={updateUnlockedAchievements}
+          cards={cards}
+        />
+        <Inventory
+          visibility={showInventory}
+          hidePopup={hidePopup}
+          unlocked={unlocked}
+        />
+        <div className={done || showInventory ? "blur game noPointer" : "game"}>
+          <Board sudokuBoard={sudokuBoard} inputChange={inputChange} />
+          <Sidebar
+            done={missionsDone}
+            sudokuBoard={sudokuBoard}
+            onFinished={showPopup}
+            numCheck={numCheck}
+          />
+        </div>
+        <div className="toolbar">
+          <HelpBtn />
+          <InventoryBtn handleClick={handleClick} />
+        </div>
       </div>
     </div>
   );
