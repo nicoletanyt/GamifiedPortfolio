@@ -101,7 +101,12 @@ function App() {
         </a>
         <Option
           text={"INTERACTIVE"}
-          handleClick={() => setOption(true)}
+          handleClick={() => {
+            setOption(true);
+            alert(
+              "Press the help button on the bottom left-hand corner for instructions :)"
+            );
+          }}
           bio={"Continue to experience a more interactive portfolio"}
         />
       </div>
