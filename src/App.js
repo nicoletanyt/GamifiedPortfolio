@@ -12,6 +12,7 @@ import { ACHIEVEMENTS } from "./components/Achievements";
 import Option from "./components/Option";
 import SocialLink from "./components/SocialLink";
 import { AiFillGithub } from "react-icons/ai";
+import HelpPage from "./components/HelpPage";
 
 function App() {
   const [sudokuBoard, setSudokuBoard] = useState(getDeepCopy(initial));
@@ -22,6 +23,7 @@ function App() {
   const [numCheck, setNumCheck] = useState(1);
   const [cards, setCards] = useState(generateCards());
   const [option, setOption] = useState(false); //inital state: 0. 1: interactive
+  const [showHelp, setShowHelp] = useState(false);
 
   function inputChange(e, row, col) {
     let grid = getDeepCopy(sudokuBoard);
@@ -70,6 +72,8 @@ function App() {
       setDone(false);
     } else if (name === "INVENTORY") {
       setShowInventory(false);
+    } else if (name === "HELP") {
+      setShowHelp(false);
     }
   };
 
@@ -79,6 +83,10 @@ function App() {
 
   function handleClick() {
     setShowInventory(!showInventory);
+  }
+
+  function toggleHelp() {
+    setShowHelp(true);
   }
 
   return (
@@ -102,6 +110,13 @@ function App() {
           option === true ? "mainContainer" : "mainContainer blur noPointer"
         }
       >
+        <HelpPage
+          visibility={showHelp}
+          hidePopup={hidePopup}
+          // handleClick={() => {
+          //   setShowHelp(true);
+          // }}
+        />
         <Picker
           visibility={done}
           hidePopup={hidePopup}
@@ -114,7 +129,11 @@ function App() {
           hidePopup={hidePopup}
           unlocked={unlocked}
         />
-        <div className={done || showInventory ? "blur game noPointer" : "game"}>
+        <div
+          className={
+            done || showInventory || showHelp ? "blur game noPointer" : "game"
+          }
+        >
           <Board sudokuBoard={sudokuBoard} inputChange={inputChange} />
           <Sidebar
             done={missionsDone}
@@ -130,7 +149,11 @@ function App() {
               name="Github"
               icon={<AiFillGithub />}
             />
-            <HelpBtn />
+            <HelpBtn
+              handleClick={() => {
+                toggleHelp();
+              }}
+            />
           </div>
           <div className="toolbarRight">
             <InventoryBtn handleClick={handleClick} />

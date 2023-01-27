@@ -296,3 +296,14 @@ a {
 .socialLink {
   color: black;
 }
+.showHelp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.instructionText {
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: large;
+}
