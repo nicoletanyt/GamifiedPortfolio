@@ -39,8 +39,13 @@ export default function Picker({ visibility, hidePopup, updateUnlock, cards }) {
           />
         ))}
       </div>
+      <p className={cards.length === 0 && visibility ? "show" : "hidden"}>
+        You may continue solving the puzzle, but there won't be anything to
+        unlock (there's only 5 parts) But it's work in progress :D
+      </p>
       <DoneBtn
         show={isOpened}
+        cardsLength={cards.length}
         onClick={() => {
           updateUnlock(unlockIndex); //updates index
           setIsOpened(false);

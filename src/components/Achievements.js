@@ -4,6 +4,7 @@ import React from "react";
 import { FaRobot, FaMusic } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import { BiCodeAlt } from "react-icons/bi";
+import { IoMdSchool } from "react-icons/io";
 
 // Image Imports
 import IDEImg from "../assets/01-ROBOTICS.png";
@@ -110,7 +111,7 @@ export const ACHIEVEMENTS = [
   },
   {
     name: "Academic Competitions",
-    icon: <BiCodeAlt className="achievementIcon" />,
+    icon: <IoMdSchool className="achievementIcon" />,
     sections: [
       {
         title: "Bronze for INTOC Physics & Engineering Competition (2022)",

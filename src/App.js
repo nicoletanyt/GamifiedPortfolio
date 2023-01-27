@@ -51,7 +51,7 @@ function App() {
       }
     }
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; locked.length >= 3 ? i < 3 : i < locked.length; i++) {
       let randomIndex = getRndInteger(0, locked.length - 1);
       cards.push(ACHIEVEMENTS[locked[randomIndex]]);
       locked.splice(randomIndex, 1);
@@ -78,7 +78,9 @@ function App() {
   };
 
   function updateUnlockedAchievements(index) {
-    setUnlocked([...unlocked, index]); //updates the index of the unlocked achievements
+    if (unlocked.length !== ACHIEVEMENTS.length) {
+      setUnlocked([...unlocked, index]); //updates the index of the unlocked achievements
+    }
   }
 
   function handleClick() {
@@ -129,6 +131,7 @@ function App() {
           updateUnlock={updateUnlockedAchievements}
           cards={cards}
         />
+
         <Inventory
           visibility={showInventory}
           hidePopup={hidePopup}
