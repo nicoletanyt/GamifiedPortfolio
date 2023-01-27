@@ -14,6 +14,8 @@ import fllImg from "../assets/03-ROBOTICS.png";
 import swiftAsso from "../assets/01-PROGRAMMING.png";
 import planemail from "../assets/02-PROGRAMMING.png";
 import susCity from "../assets/03-PROGRAMMING.png";
+import INTOC from "../assets/01-COMPS.png";
+import OPPX from "../assets/02-COMPS.png";
 
 export const ACHIEVEMENTS = [
   {
@@ -25,6 +27,13 @@ export const ACHIEVEMENTS = [
         details:
           "Being part of the 2020 Prefect EXCO allowed me to plan school events as a team, such as a teacher's day celebration, which helped me hone my leadership and collaboration skills. ",
         image: p6ExcoImg,
+        credits: "",
+      },
+      {
+        title: "Member of the Student Council",
+        details:
+          "In 2022, I got invested in being a member of the student council of SST. Being a student council member has opened many opportunities for me, as I got to plan and execute different events. For example, badge night (an event for secondary 1s in SST to receive the SST badge) and Grad Tea (an informal ceremony for the secondary 4s after their O levels). It has also allowed me to build my confidence in speaking in front of a large audience. ",
+        image: null,
         credits: "",
       },
     ],
@@ -96,6 +105,26 @@ export const ACHIEVEMENTS = [
         credits: "SusCity",
         link: "https://sus-city.github.io/SIGNUP-PAGE/signup.html",
         linkText: "Click here to start playing!",
+      },
+    ],
+  },
+  {
+    name: "Academic Competitions",
+    icon: <BiCodeAlt className="achievementIcon" />,
+    sections: [
+      {
+        title: "Bronze for INTOC Physics & Engineering Competition (2022)",
+        details:
+          "In 2022, I conducted a science experiment with my classmate regarding the soil strength (sheer, tensile) for different soil types, which we used for a competition called INTOC and received bronze. This learning experience helped me cultivate several skills, such as time management and planning.",
+        image: INTOC,
+        credits: "",
+      },
+      {
+        title: "3rd Place for Opportunity X Science Competition (2022)",
+        details:
+          "In addition, I also participated in an Opportunity X Science Competition using my project on the investigation of soil strength (sheer, tensile) for different soil types. ",
+        image: OPPX,
+        credits: "",
       },
     ],
   },

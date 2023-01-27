@@ -9,11 +9,14 @@ export default function ItemDetails({ sectionInfo }) {
         <a href={sectionInfo.link}>{sectionInfo.linkText}</a>
       </div>
       <div className="imageContainer">
-        <img
-          className="detailImg"
-          src={sectionInfo.image}
-          alt={sectionInfo.title}
-        />
+        {sectionInfo.image !== null ? (
+          <img
+            className="detailImg"
+            src={sectionInfo.image}
+            alt={sectionInfo.title}
+          />
+        ) : null}
+
         <div className="creditsOverlay">
           <p className="credits">
             Credits: {sectionInfo.credits === "" ? "-" : sectionInfo.credits}
