@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 
-export default function CheckBtn({ grid, onClicked, numCheck }) {
+export default function CheckBtn({ grid, onClicked, numCheck, onCheck }) {
   function checkRow(grid, row, num) {
     if (grid[row].indexOf(num) !== -1) {
       grid[row].splice(grid[row].indexOf(num), num);
@@ -67,8 +67,10 @@ export default function CheckBtn({ grid, onClicked, numCheck }) {
     <button
       className="checkBtn togglePoint"
       onClick={(e) => {
-        if (checkOccurrences(grid, numCheck)) {
-          onClicked(e);
+        if (onCheck) {
+          if (checkOccurrences(grid, numCheck)) {
+            onClicked(e);
+          }
         }
       }}
     >

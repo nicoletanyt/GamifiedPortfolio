@@ -64,7 +64,9 @@ function App() {
     setDone(true);
     setCards(generateCards());
     setMissionsDone([...missionsDone, true]);
-    setNumCheck(numCheck + 1); //update the sudoku checking logic
+    if (numCheck < 9) {
+      setNumCheck(numCheck + 1); //update the sudoku checking logic
+    }
   }
 
   const hidePopup = (name) => {
