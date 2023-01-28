@@ -5,8 +5,12 @@ body {
   margin: 0;
   background-color: #d9d0b4;
 }
+table {
+  border-collapse: collapse;
+  border: 5px solid#666b5e;
+}
 table input {
-  border: 2px solid #666b5e;
+  border: 1px solid #666b5e;
   margin: 0;
   font-size: 20px;
   text-align: center;
@@ -14,6 +18,12 @@ table input {
   width: 50px;
   color: black;
   font-weight: bold;
+}
+.bBoard {
+  border-bottom: 5px solid #666b5e;
+}
+.rBoard {
+  border-right: 5px solid #666b5e;
 }
 .initalCell {
   background-color: #879e82;
@@ -72,7 +82,7 @@ table input {
   padding-top: 50px;
 }
 body {
-  overflow: hidden;
+  overflow-y: scroll;
 }
 .blur {
   filter: blur(5px);
@@ -282,6 +292,7 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  padding: 2%;
 }
 .appWrapper {
   position: relative;

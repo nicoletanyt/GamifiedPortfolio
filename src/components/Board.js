@@ -14,10 +14,13 @@ function Board({ sudokuBoard, inputChange }) {
         {/* each cell */}
         {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((row, rIndex) => {
           return (
-            <tr key={rIndex}>
+            <tr key={rIndex} className={(row + 1) % 3 === 0 ? "bBoard" : ""}>
               {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((col, cIndex) => {
                 return (
-                  <td key={cIndex}>
+                  <td
+                    key={cIndex}
+                    className={(col + 1) % 3 === 0 ? "rBoard" : ""}
+                  >
                     <input
                       value={
                         sudokuBoard[row][col] === -1
