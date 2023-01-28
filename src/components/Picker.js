@@ -25,7 +25,13 @@ export default function Picker({ visibility, hidePopup, updateUnlock, cards }) {
     <div
       className={visibility ? "popUp overlay picker show" : "overlay hidden"}
     >
-      <Header text={"Pick an achievement to unlock!"} />
+      <Header
+        text={
+          cards.length !== 0
+            ? "Pick an achievement to unlock!"
+            : "You may continue solving the puzzle, but there won't be anything to unlock (there's only 5 parts) But it's work in progress :D"
+        }
+      />
       <div className="cardContainer" onClick={handleOpen}>
         {cards.map((achievement, index) => (
           <Card
@@ -39,10 +45,7 @@ export default function Picker({ visibility, hidePopup, updateUnlock, cards }) {
           />
         ))}
       </div>
-      <p className={cards.length === 0 && visibility ? "show" : "hidden"}>
-        You may continue solving the puzzle, but there won't be anything to
-        unlock (there's only 5 parts) But it's work in progress :D
-      </p>
+      {/* <p className={cards.length === 0 && visibility ? "show" : "hidden"}></p> */}
       <DoneBtn
         show={isOpened}
         cardsLength={cards.length}

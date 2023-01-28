@@ -18,8 +18,12 @@ export default function Sidebar({ done, sudokuBoard, onFinished, numCheck }) {
   return (
     <div className="sidebar">
       <div>
-        <h2>Your Missions: </h2>
-        <ul>
+        <h2>
+          {done.length === 9
+            ? "Good Job! You’ve unlocked all the parts of the portfolio, I hope you enjoyed the mini game :) "
+            : "Your Missions:"}{" "}
+        </h2>
+        <ul className={done.length === 9 ? "hidden" : "show"}>
           {missions.map((mission, index) => (
             <li key={index} className={done[index] ? "done" : null}>
               {mission}
