@@ -101,7 +101,7 @@ export const ACHIEVEMENTS = [
       {
         title: "SusCity",
         details:
-          "SusCity (SustainableCity) is an educational geography game made using pure Javascript, CSS and HTML to help students visualise the geography concept taught in class. It is targeted at SST Students specifically because the geography content in the game is derived from SST's unique geography curriculum. Sneak peak of SusCity →",
+          "SusCity (SustainableCity) is an educational geography game made using pure Javascript, CSS and HTML to help students visualise the geography concept taught in class. It is targeted at SST Students specifically because the geography content in the game is derived from SST's unique geography curriculum. Sneak peek of SusCity →",
         image: susCity,
         credits: "SusCity",
         link: "https://sus-city.github.io/SIGNUP-PAGE/signup.html",

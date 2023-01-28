@@ -163,6 +163,7 @@ function App() {
               }}
             />
           </div>
+          [Currently does not support running on mobile devices.]
           <div className="toolbarRight">
             <InventoryBtn handleClick={handleClick} />
           </div>
